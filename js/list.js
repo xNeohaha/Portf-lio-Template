@@ -54,7 +54,7 @@ window.onload = () => {
   }
 };
 
-// --- SISTEMA DE PESQUISA POR TÍTULO ---
+
 const inputSearch = document.getElementById("inputSearch");
 
 function addFilter() {
@@ -64,7 +64,7 @@ function addFilter() {
   cards.forEach(card => {
     const titleElement = card.querySelector(".project-title");
 
-    if (!titleElement) return; // segurança caso algo falhe
+    if (!titleElement) return;
 
     const titleText = titleElement.textContent.toLowerCase();
 
@@ -73,11 +73,8 @@ function addFilter() {
   });
 }
 
-// 🔹 Busca em tempo real
-inputSearch.addEventListener("input", addFilter);
 
-// 🔹 Mantém o botão funcional
-document.querySelector("button").addEventListener("click", addFilter);
+inputSearch.addEventListener("input", addFilter);
 
 const carousel = document.querySelector(".lesson-cards");
 const btnPrev = document.querySelector(".carousel-btn.prev");
