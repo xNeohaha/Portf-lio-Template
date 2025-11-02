@@ -1,0 +1,62 @@
+[
+  {
+    "titulo": "Exercício 1 - NeoTech",
+    "semestre": "1",
+    "descricao": "Exércicio da Tabela de Jogos.",
+    "status": true,
+    "links": [
+      {
+        "texto": "Ver o site.",
+        "url": "./lessons/lesson_one/index.html"
+      }
+    ]
+  },
+  {
+    "titulo": "Exercício 2 - Outro Exercício",
+    "semestre": "1",
+    "descricao": "Exércicio de adasda.",
+    "status": true,
+    "links": [
+      {
+        "texto": "Ver o site.",
+        "url": "./lessons/lesson_one/index.html"
+      }
+    ]
+  },
+   {
+    "titulo": "Exercício 3 - Outro Exercício",
+    "semestre": "1",
+    "descricao": "Exércicio de adasda.",
+    "status": true,
+    "links": [
+      {
+        "texto": "Ver o site.",
+        "url": "./lessons/lesson_one/index.html"
+      }
+    ]
+  },
+   {
+    "titulo": "Exercício 4 - Outro Exercício",
+    "semestre": "1",
+    "descricao": "Exércicio de adasda.",
+    "status": true,
+    "links": [
+      {
+        "texto": "Ver o site.",
+        "url": "./lessons/lesson_one/index.html"
+      }
+    ]
+  },
+   {
+    "titulo": "Exercício 5 - Outro Exercício",
+    "semestre": "1",
+    "descricao": "Exércicio de adasda.",
+    "status": true,
+    "links": [
+      {
+        "texto": "Ver o site.",
+        "url": "./lessons/lesson_one/index.html"
+      }
+    ]
+  }
+]

@@ -1,0 +1,253 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #a5a5a5; /* branco acinzentado */
+  color: #111; /* texto preto suave */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+a {
+  color: #111; /* preto */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #555; /* cinza escuro no hover */
+}
+
+.site-header {
+  background-color: #1e1e1e; /* preto quase puro */
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.header-logo img {
+  vertical-align: middle;
+  filter: brightness(0) invert(1); /* inverte cores para tema claro */
+}
+
+.header-text h1,
+.header-text h2,
+.header-text h3,
+.header-text h4 {
+  margin: 8px 0;
+  color: #f2f2f2; /* texto claro */
+}
+
+.title-main {
+  font-size: 2rem;
+  color: #000;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #444;
+}
+
+.update-info {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.intro-text {
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+  color: #222;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  color: #000;
+  margin: 25px 0 10px;
+}
+
+.trend-list,
+.company-list {
+  text-align: left;
+  max-width: 400px;
+  margin: 20px auto;
+  color: #222;
+}
+
+.product-section {
+  padding: 40px 0;
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #e6e6e6; /* cinza claro */
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  filter: grayscale(100%) contrast(110%);
+}
+
+.card h3,
+.card h4 {
+  margin-top: 10px;
+  color: #000;
+}
+
+.card h5 {
+  margin-top: 10px;
+  color: #333;
+}
+
+.card p {
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #111;
+  color: #f2f2f2;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.card a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Carrossel de cards */
+#productCarousel .carousel-inner {
+  padding: 20px;
+}
+
+#productCarousel .card {
+  background: linear-gradient(180deg, #e6e6e6, #d1d1d1);
+  border: none;
+  color: #111;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#productCarousel .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+#productCarousel .card-title {
+  color: #000;
+}
+
+#productCarousel .btn-primary {
+  background-color: #111;
+  border: none;
+  color: #f2f2f2;
+  font-weight: 600;
+}
+
+#productCarousel .btn-primary:hover {
+  background-color: #333;
+  color: #fff;
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.lesson-cards {
+  display: flex;
+  gap: 20px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+.lesson-cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 260px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* Botões de navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(20, 20, 20, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+.site-footer {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #1e1e1e;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.footer-note {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #999;
+}
