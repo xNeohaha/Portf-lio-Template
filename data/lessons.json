@@ -1,7 +1,7 @@
 [
   {
     "titulo": "Exercício 1 - NeoTech",
-    "semestre": "1",
+    "semestre": 1,
     "descricao": "Exércicio da Tabela de Jogos.",
     "status": true,
     "links": [
@@ -13,7 +13,7 @@
   },
   {
     "titulo": "Exercício 2 - Outro Exercício",
-    "semestre": "1",
+    "semestre": 1,
     "descricao": "Exércicio de adasda.",
     "status": true,
     "links": [
@@ -25,7 +25,7 @@
   },
    {
     "titulo": "Exercício 3 - Outro Exercício",
-    "semestre": "1",
+    "semestre": 1,
     "descricao": "Exércicio de adasda.",
     "status": true,
     "links": [
@@ -37,7 +37,7 @@
   },
    {
     "titulo": "Exercício 4 - Outro Exercício",
-    "semestre": "1",
+    "semestre": 1,
     "descricao": "Exércicio de adasda.",
     "status": true,
     "links": [

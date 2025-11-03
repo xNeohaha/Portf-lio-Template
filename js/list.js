@@ -1,6 +1,10 @@
-window.onload = () => {
-  const container = document.querySelector(".lesson-cards");
+const container = document.querySelector(".lesson-cards");
+const infocontainer = document.querySelector(".site-header");
 
+window.onload = () => {
+
+
+  // Carregar projetos
   try {
     fetch('./data/lessons.json')
       .then(response => response.json())
@@ -9,20 +13,17 @@ window.onload = () => {
           const card = document.createElement("div");
           card.classList.add("card");
 
-          // TÍTULO
           const title = document.createElement("h3");
-          title.classList.add("project-title"); // 🔹 Classe para identificar o título
+          title.classList.add("project-title");
           title.textContent = projeto.titulo;
           card.appendChild(title);
 
-          // SEMESTRE
           if (projeto.semestre) {
             const semester = document.createElement("h4");
             semester.textContent = `${projeto.semestre}º Semestre`;
             card.appendChild(semester);
           }
 
-          // STATUS
           if (projeto.status !== undefined) {
             const statustext = document.createElement("h5");
             statustext.textContent = projeto.status
@@ -31,12 +32,10 @@ window.onload = () => {
             card.appendChild(statustext);
           }
 
-          // DESCRIÇÃO
           const desc = document.createElement("p");
           desc.textContent = projeto.descricao;
           card.appendChild(desc);
 
-          // LINKS
           projeto.links.forEach(linkData => {
             const link = document.createElement("a");
             link.href = linkData.url;
@@ -44,7 +43,6 @@ window.onload = () => {
             card.appendChild(link);
           });
 
-          // Adiciona o card ao container
           container.appendChild(card);
         });
       });
@@ -52,9 +50,41 @@ window.onload = () => {
     console.error("Erro ao carregar os projetos:", error);
     container.innerHTML = "<p>Não foi possível carregar os projetos.</p>";
   }
+
+  try {
+    fetch('./data/info.json')
+      .then(responsa => responsa.json())
+      .then(infos => {
+        infos.forEach(info => {
+          const infocard = document.createElement("div");
+          infocard.classList.add("card");
+
+          const std_name = document.createElement("h1");
+          std_name.classList.add("student_name");
+          std_name.textContent = info.nome;
+          infocard.appendChild(std_name);
+
+          const std_ra = document.createElement("h2");
+          std_ra.textContent = ("RA: "+ info.ra);
+          infocard.appendChild(std_ra);
+
+          info.repository.forEach(linkData => {
+            const link = document.createElement("a");
+            link.href = linkData.url;
+            link.textContent = linkData.texto;
+            infocard.appendChild(link);
+          });
+
+          infocontainer.appendChild(infocard);
+        });
+      });
+  } catch (error) {
+    console.error("Erro ao carregar as informações do aluno:", error);
+    infocontainer.innerHTML = "<p>Não foi possível carregar as informações do aluno.</p>";
+  }
 };
 
-
+// Função para filtro de pesquisa
 const inputSearch = document.getElementById("inputSearch");
 
 function addFilter() {
@@ -73,14 +103,13 @@ function addFilter() {
   });
 }
 
-
 inputSearch.addEventListener("input", addFilter);
 
+// Controle de carrossel (deslocamento)
 const carousel = document.querySelector(".lesson-cards");
 const btnPrev = document.querySelector(".carousel-btn.prev");
 const btnNext = document.querySelector(".carousel-btn.next");
 
-// valor de rolagem (ajuste conforme o tamanho dos cards)
 const scrollAmount = 300;
 
 btnPrev.addEventListener("click", () => {
