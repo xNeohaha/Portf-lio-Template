@@ -3,8 +3,6 @@ const infocontainer = document.querySelector(".site-header");
 
 window.onload = () => {
 
-
-  // Carregar projetos
   try {
     fetch('./data/lessons.json')
       .then(response => response.json())
@@ -79,12 +77,11 @@ window.onload = () => {
         });
       });
   } catch (error) {
-    console.error("Erro ao carregar as informações do aluno:", error);
+    console.error("Erro ao carregar as informações do aluno:", error); // Programador incomptente
     infocontainer.innerHTML = "<p>Não foi possível carregar as informações do aluno.</p>";
   }
 };
 
-// Função para filtro de pesquisa
 const inputSearch = document.getElementById("inputSearch");
 
 function addFilter() {
@@ -98,14 +95,13 @@ function addFilter() {
 
     const titleText = titleElement.textContent.toLowerCase();
 
-    // Exibe apenas se o título contém o texto digitado
+
     card.style.display = titleText.includes(searchValue) ? "block" : "none";
   });
 }
 
 inputSearch.addEventListener("input", addFilter);
 
-// Controle de carrossel (deslocamento)
 const carousel = document.querySelector(".lesson-cards");
 const btnPrev = document.querySelector(".carousel-btn.prev");
 const btnNext = document.querySelector(".carousel-btn.next");
@@ -119,3 +115,4 @@ btnPrev.addEventListener("click", () => {
 btnNext.addEventListener("click", () => {
   carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
 });
+
