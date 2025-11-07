@@ -6,7 +6,7 @@ Um template para um Portfólio para as Aulas de Desenvolvimento Web, fiz isso pa
 ====================
 
 
-Fazer o Card do Aluno
+- Fazer o Card do Aluno -
 
 Fazer um sistema de Categorias
 Será separado -Os Projetos- e -Outros- (Nome temporário),

@@ -5,80 +5,80 @@ window.onload = () => {
 
   try {
     fetch('./data/lessons.json')
-      .then(response => response.json())
-      .then(projetos => {
-        projetos.forEach(projeto => {
-          const card = document.createElement("div");
-          card.classList.add("card");
+  .then(response => response.json())
+  .then(data => {
+    const categorias = ["projetos", "outros"];
 
-          const title = document.createElement("h3");
-          title.classList.add("project-title");
-          title.textContent = projeto.titulo;
-          card.appendChild(title);
+    categorias.forEach(categoria => {
+      const categoriaTitulo = document.createElement("h2");
+      categoriaTitulo.textContent = categoria;
+      categoriaTitulo.classList.add("categoria-titulo");
+      container.appendChild(categoriaTitulo);
 
-          if (projeto.semestre) {
-            const semester = document.createElement("h4");
-            semester.textContent = `${projeto.semestre}º Semestre`;
-            card.appendChild(semester);
-          }
+      data[categoria].forEach(item => {
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-          if (projeto.status !== undefined) {
-            const statustext = document.createElement("h5");
-            statustext.textContent = projeto.status
-              ? "O exercício está completo."
-              : "O exercício está incompleto. Talvez um erro.";
-            card.appendChild(statustext);
-          }
+        const title = document.createElement("h3");
+        title.classList.add("project-title");
+        title.textContent = item.titulo;
+        card.appendChild(title);
 
-          const desc = document.createElement("p");
-          desc.textContent = projeto.descricao;
-          card.appendChild(desc);
+        // Subcategoria (semestre ou tipo)
+        if (item.semestre) {
+          const semester = document.createElement("h4");
+          semester.textContent = `${item.semestre}º Semestre`;
+          card.appendChild(semester);
+        } else if (item.tipo) {
+          const tipo = document.createElement("h4");
+          tipo.textContent = `Tipo: ${item.tipo}`;
+          card.appendChild(tipo);
+        }
 
-          projeto.links.forEach(linkData => {
-            const link = document.createElement("a");
-            link.href = linkData.url;
-            link.textContent = linkData.texto;
-            card.appendChild(link);
-          });
+        // Barra ou texto de progresso
+        const progress = document.createElement("p");
+        progress.classList.add("progress-text");
 
-          container.appendChild(card);
+        switch (item.progress) {
+          case 0:
+            progress.textContent = "Não iniciado";
+            progress.style.color = "#a00";
+            break;
+          case 1:
+            progress.textContent = "Em desenvolvimento";
+            progress.style.color = "#d49a00";
+            break;
+          case 2:
+            progress.textContent = "Concluído!";
+            progress.style.color = "#0a0";
+            break;
+        }
+
+        card.appendChild(progress);
+
+        const desc = document.createElement("p");
+        desc.textContent = item.descricao;
+        card.appendChild(desc);
+
+        item.links.forEach(linkData => {
+          const link = document.createElement("a");
+          link.href = linkData.url;
+          link.textContent = linkData.texto;
+          card.appendChild(link);
         });
+
+        container.appendChild(card);
       });
+    });
+  })
+  .catch(error => {
+    console.error("Erro ao carregar os projetos:", error);
+    container.innerHTML = "<p>Não foi possível carregar os projetos.</p>";
+  });
+
   } catch (error) {
     console.error("Erro ao carregar os projetos:", error);
     container.innerHTML = "<p>Não foi possível carregar os projetos.</p>";
-  }
-
-  try {
-    fetch('./data/info.json')
-      .then(responsa => responsa.json())
-      .then(infos => {
-        infos.forEach(info => {
-          const infocard = document.createElement("div");
-          infocard.classList.add("card");
-
-          const std_name = document.createElement("h1");
-          std_name.classList.add("student_name");
-          std_name.textContent = info.nome;
-          infocard.appendChild(std_name);
-
-          const std_ra = document.createElement("h2");
-          std_ra.textContent = ("RA: "+ info.ra);
-          infocard.appendChild(std_ra);
-
-          info.repository.forEach(linkData => {
-            const link = document.createElement("a");
-            link.href = linkData.url;
-            link.textContent = linkData.texto;
-            infocard.appendChild(link);
-          });
-
-          infocontainer.appendChild(infocard);
-        });
-      });
-  } catch (error) {
-    console.error("Erro ao carregar as informações do aluno:", error); // Programador incomptente
-    infocontainer.innerHTML = "<p>Não foi possível carregar as informações do aluno.</p>";
   }
 };
 
@@ -116,3 +116,41 @@ btnNext.addEventListener("click", () => {
   carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
 });
 
+function addStudentCard() {
+  // Verifica se já existe um card de estudante
+  const existingCard = document.querySelector(".site-header .student-card");
+  if (existingCard) {
+    existingCard.remove(); // Remove o card existente
+    return; // Sai da função (serve como um "toggle")
+  }
+
+  fetch('./data/info.json')
+    .then(responsa => responsa.json())
+    .then(infos => {
+      infos.forEach(info => {
+        const infocard = document.createElement("div");
+        infocard.classList.add("card", "student-card"); // adiciona classe específica
+
+        const std_name = document.createElement("h1");
+        std_name.classList.add("student_name");
+        std_name.textContent = info.nome;
+        infocard.appendChild(std_name);
+
+        const std_ra = document.createElement("h2");
+        std_ra.textContent = "RA: " + info.ra;
+        infocard.appendChild(std_ra);
+
+        info.repository.forEach(linkData => {
+          const link = document.createElement("a");
+          link.href = linkData.url;
+          link.textContent = linkData.texto;
+          infocard.appendChild(link);
+        });
+
+        infocontainer.appendChild(infocard);
+      });
+    })
+    .catch(err => {
+      console.error("Erro ao carregar informações do aluno:", err);
+    });
+}

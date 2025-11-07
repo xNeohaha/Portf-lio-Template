@@ -12,6 +12,20 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+.categoria-titulo {
+  font-size: 1.8rem;
+  color: #111;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #444;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.progress-text {
+  font-weight: bold;
+  margin: 8px 0;
+}
 
 a:hover {
   text-decoration: underline;
