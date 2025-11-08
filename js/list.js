@@ -50,13 +50,25 @@ async function loadProjects() {
         else if (item.tipo) sub.textContent = `Tipo: ${item.tipo}`;
         else sub.remove();
 
-        const progress = card.querySelector(".progress-text");
-        progress.textContent =
-          item.progress === 2
-            ? "✅ Concluído!"
-            : item.progress === 1
-            ? "🚧 Em desenvolvimento"
-            : "";
+       const progress = card.querySelector(".progress-text");
+switch (item.progress) {
+  case 0:
+    progress.textContent = "Não iniciado";
+    progress.style.color = "#a00";
+    break;
+  case 1:
+    progress.textContent = "Em desenvolvimento";
+    progress.style.color = "#d49a00";
+    break;
+  case 2:
+    progress.textContent = "Concluído!";
+    progress.style.color = "#0a0";
+    break;
+  default:
+    progress.textContent = "";
+    progress.style.color = "";
+}
+
 
         card.querySelector(".project-desc").textContent = item.descricao;
 
