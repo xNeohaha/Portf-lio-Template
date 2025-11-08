@@ -1,38 +1,62 @@
 {
   "Projetos": [
    { 
-      "titulo": "Exercício 1 - NeoTech",
+      "titulo": "Atividade 1 - Site Complexo",
       "semestre": 1,
-      "descricao": "Exércicio da Tabela de Jogos.",
-      "progress": 1,
+      "descricao": "Um site com a finalidade de exercitar os conceitos aprendidos em aula.",
+      "progress": 2,
       "links": [
         {
-          "texto": "Ver o site.",
+          "texto": "Visualizar a página.",
           "url": "./lessons/lesson_one/index.html"
         }
       ]
     },
     {
-      "titulo": "Exercício 2 - Outro Exercício",
+      "titulo": "Atividade 2 - Site Ainda Mais Complexo!",
       "semestre": 1,
       "descricao": "Outro exercício de aula.",
-      "progress": 1,
+      "progress": 2,
       "links": [
         {
-          "texto": "Ver o site.",
+          "texto": "Visualizar a página.",
           "url": "./lessons/lesson_two/index.html"
         }
       ]
     },
     {
-      "titulo": "Exercício 3 - NeoTech",
+      "titulo": "Atividade 3 - Treinamento CSS",
       "semestre": 1,
-      "descricao": "Exércicio da Tabela de Jogos.",
+      "descricao": "Um site para treinar CSS.",
+      "progress": 2,
+      "links": [
+        {
+          "texto": "Visualizar a página.",
+          "url": "./lessons/lesson_one/index.html"
+        }
+      ]
+    },
+    {
+      "titulo": "Atividade 4 - Apresentação de Conteúdo",
+      "semestre": 1,
+      "descricao": "Apresentação de conteúdo em site.",
+      "progress": 1,
+      "links": [
+        {
+          "texto": "Visualizar a página.",
+          "url": "https://xneohaha.github.io/Portf-lio-Template"
+        }
+      ]
+    },
+        {
+      "titulo": "Atividade 5 - Calendario Interativo",
+      "semestre": 1,
+      "descricao": "Se encontra sem nenhum desenvolvimento.",
       "progress": 0,
       "links": [
         {
-          "texto": "Ver o site.",
-          "url": "./lessons/lesson_one/index.html"
+          "texto": "Visualizar a página.",
+          "url": "https://xneohaha.github.io/Portf-lio-Template"
         }
       ]
     }

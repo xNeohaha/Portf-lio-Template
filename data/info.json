@@ -1,11 +1,15 @@
 [
   {
-    "nome": "Anthony Pires de Araújo",
+    "nome": "Galvian das Fier",
     "ra": "1234567891011",
     "repository": [
       {
         "texto": "Ver o Repositório.",
-        "url": "./lessons/lesson_one/index.html"
+        "url": "https://github.com/xNeohaha/Portf-lio-Template"
+      },
+      {
+        "texto": "Ver o Pages.",
+        "url": "https://xneohaha.github.io/Portf-lio-Template"
       }
     ]
   }

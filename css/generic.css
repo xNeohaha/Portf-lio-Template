@@ -1,12 +1,13 @@
 /* ==============================
    🎨 ESTILO GERAL DO SITE
 ============================== */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #a5a5a5; /* cinza claro */
-  color: #111;
+html, body {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #a5a5a5;
+  color: #111;
   text-align: center;
 }
 
@@ -45,8 +46,8 @@ a:hover {
 
 .site-header button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   background: #6b6b6b;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
 .header-logo img {
@@ -54,43 +55,22 @@ a:hover {
   filter: brightness(0) invert(1);
 }
 
-.header-text h1,
-.header-text h2,
-.header-text h3,
-.header-text h4 {
+.header-text h1, .header-text h2, .header-text h3, .header-text h4 {
   margin: 8px 0;
   color: #f2f2f2;
 }
 
-.title-main {
-  font-size: 2rem;
-  color: #000;
-}
+.title-main { font-size: 2rem; color: #000; }
+.subtitle   { font-size: 1.2rem; color: #333; }
+.tagline    { font-size: 1rem;  color: #444; }
+.update-info{ font-size: 0.9rem; color: #555; }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.tagline {
-  font-size: 1rem;
-  color: #444;
-}
-
-.update-info {
-  font-size: 0.9rem;
-  color: #555;
-}
 /* ==============================
-   CARD DO ESTUDANTE
+   🧍 CARD DO ESTUDANTE (MODAL)
 ============================== */
-/* Fundo com blur (overlay) */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.3);
   display: flex;
@@ -100,7 +80,6 @@ a:hover {
   animation: fadeIn 0.3s ease;
 }
 
-/* Card do aluno no centro */
 .student-card {
   background: #f8f8f8;
   color: #111;
@@ -114,7 +93,6 @@ a:hover {
   animation: popIn 0.25s ease;
 }
 
-/* Botão de fechar (X) */
 .student-card .close-btn {
   position: absolute;
   top: 10px;
@@ -127,48 +105,34 @@ a:hover {
   transition: color 0.2s ease;
 }
 
-.student-card .close-btn:hover {
-  color: #000;
-}
+.student-card .close-btn:hover { color: #000; }
 
-.student-card h1 {
-  margin-bottom: 5px;
-}
-
-.student-card h2 {
-  margin-bottom: 15px;
-  color: #333;
-  font-weight: normal;
-}
+.student-card h1 { margin-bottom: 5px; }
+.student-card h2 { margin-bottom: 15px; color: #333; font-weight: normal; }
 
 .student-card a {
   display: inline-block;
   margin-top: 10px;
   background: #111;
   color: #fff;
-  padding: 8px 16px;
+  padding: 16px 32px;
   border-radius: 8px;
-  text-decoration: none;
   transition: background 0.2s ease;
 }
 
-.student-card a:hover {
-  background: #333;
-}
+.student-card a:hover { background: #333; }
 
-/* Animações */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; } to { opacity: 1; }
 }
 
 @keyframes popIn {
   from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 /* ==============================
-   📖 CONTEÚDO / TEXTO
+   📖 CONTEÚDO / TEXTOS
 ============================== */
 .intro-text {
   max-width: 700px;
@@ -194,35 +158,45 @@ a:hover {
   padding-bottom: 5px;
 }
 
+/* Wrapper principal centralizado */
 .carousel-wrapper {
   position: relative;
-  margin-bottom: 30px;
-}
-
-.carousel-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 40px;
   width: 100%;
-  max-width: 2000px;
-  margin: 0 auto;
-  overflow: hidden;
+  max-width: 1000px;
 }
 
-/* ==============================
-   💳 CARDS DE PROJETOS
-============================== */
+/* Container do carrossel */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Faixa rolável dos cards */
 .lesson-cards {
   display: flex;
   gap: 20px;
-  scroll-behavior: smooth;
   overflow-x: auto;
-  padding: 10px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  margin: 0;
   scrollbar-width: none; /* Firefox */
+  justify-content: flex-start;
 }
 
 .lesson-cards::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
 
+/* Corrige o recorte nas bordas laterais */
+.lesson-cards .card:first-child { margin-left: 40px; }
+.lesson-cards .card:last-child { margin-right: 40px; }
+
+/* Estilo dos cards */
 .card {
   flex: 0 0 auto;
   width: 260px;
@@ -239,8 +213,7 @@ a:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
 }
 
-.card h3,
-.card h4 {
+.card h3, .card h4 {
   margin-top: 10px;
   color: #000;
 }
@@ -266,14 +239,13 @@ a:hover {
 }
 
 /* ==============================
-   📊 INDICADOR DE PROGRESSO
+   📊 PROGRESSO DOS PROJETOS
 ============================== */
 .progress-text {
   font-weight: bold;
   text-align: center;
   margin: 6px 0;
 }
-
 
 /* ==============================
    🔍 BARRA DE BUSCA
@@ -311,10 +283,7 @@ a:hover {
     flex-direction: column;
     gap: 0.6rem;
   }
-
-  .search-bar input {
-    width: 100%;
-  }
+  .search-bar input { width: 100%; }
 }
 
 /* ==============================
@@ -339,13 +308,8 @@ a:hover {
   transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-btn.prev {
-  left: 15px;
-}
-
-.carousel-btn.next {
-  right: 15px;
-}
+.carousel-btn.prev { left: -10px; }
+.carousel-btn.next { right: -10px; }
 
 /* ==============================
    ⚙️ RODAPÉ
