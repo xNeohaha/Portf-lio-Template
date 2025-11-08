@@ -1,10 +1,22 @@
 {
-  "projetos": [
+  "Projetos": [
     {
       "titulo": "Exercício 1 - NeoTech",
       "semestre": 1,
       "descricao": "Exércicio da Tabela de Jogos.",
-      "progress": 2,
+      "progress": 0,
+      "links": [
+        {
+          "texto": "Ver o site.",
+          "url": "./lessons/lesson_one/index.html"
+        }
+      ]
+    },
+    {
+      "titulo": "Exercício 3 - NeoTech",
+      "semestre": 1,
+      "descricao": "Exércicio da Tabela de Jogos.",
+      "progress": 0,
       "links": [
         {
           "texto": "Ver o site.",
@@ -25,7 +37,7 @@
       ]
     }
   ],
-  "outros": [
+  "Outros": [
     {
       "titulo": "Projeto Integrador",
       "tipo": "PI",
